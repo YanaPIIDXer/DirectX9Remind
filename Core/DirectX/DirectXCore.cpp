@@ -11,13 +11,14 @@ DirectXCore::DirectXCore()
 // デストラクタ
 DirectXCore::~DirectXCore()
 {
-	SAFE_RELEASE(pDevice);
-	SAFE_RELEASE(pD3D9);
+	release();
 }
 
 // 初期化
 bool DirectXCore::Initialize(HWND hWnd)
 {
+	instance.release();		// 一旦解放
+
 	instance.pD3D9 = Direct3DCreate9(D3D_SDK_VERSION);
 	if (instance.pD3D9 == nullptr)
 	{
@@ -44,4 +45,12 @@ bool DirectXCore::Initialize(HWND hWnd)
 	instance.pDevice->SetRenderState(D3DRS_LIGHTING, TRUE);
 
 	return true;
+}
+
+
+// 解放
+void DirectXCore::release()
+{
+	SAFE_RELEASE(pDevice);
+	SAFE_RELEASE(pD3D9);
 }

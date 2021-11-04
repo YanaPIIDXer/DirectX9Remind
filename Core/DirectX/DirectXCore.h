@@ -25,6 +25,10 @@ private:
 	// Direct3Dデバイス
 	LPDIRECT3DDEVICE9 pDevice = nullptr;
 
+
+	// 解放
+	void release();
+
 // ====== Signleton ======
 public:
 
