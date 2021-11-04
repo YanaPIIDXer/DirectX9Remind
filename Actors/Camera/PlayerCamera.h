@@ -12,6 +12,14 @@ public:
 
 	// デストラクタ
 	virtual ~PlayerCamera();
+
+private:
+
+	// 上下移動
+	void moveForward(float value);
+
+	// 左右旋回
+	void turnRight(float Value);
 };
 
 #endif		// #ifndef PLAYERCAMERA_H
