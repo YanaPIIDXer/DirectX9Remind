@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Scene.h"
+#include "Actor.h"
 
 // コンストラクタ
 Scene::Scene()
@@ -16,6 +17,10 @@ Scene::~Scene()
 // 更新
 void Scene::Update()
 {
+	for (auto it = actorList.begin(); it != actorList.end(); ++it)
+	{
+		(*it)->Update();
+	}
 }
 
 // 描画
