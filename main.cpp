@@ -27,6 +27,8 @@ bool InitD3D9(HWND hWnd)
 		params.Windowed = TRUE;
 		params.SwapEffect = D3DSWAPEFFECT_DISCARD;
 		params.BackBufferFormat = D3DFMT_UNKNOWN;
+		params.EnableAutoDepthStencil = TRUE;
+		params.AutoDepthStencilFormat = D3DFMT_D16;
 
 		if (FAILED(pD3D9->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &params, &pDevice)))
 		{
@@ -34,6 +36,9 @@ bool InitD3D9(HWND hWnd)
 			return false;
 		}
 	}
+
+	pDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+	pDevice->SetRenderState(D3DRS_ZENABLE, TRUE);
 
 	if (FAILED(D3DXCreateTeapot(pDevice, &pTeapot, nullptr)))
 	{
@@ -46,7 +51,7 @@ bool InitD3D9(HWND hWnd)
 // •`‰æ
 void Render()
 {
-	pDevice->Clear(0, nullptr, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 255), 1.0f, 0);
+	pDevice->Clear(0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 255), 1.0f, 0);
 
 	if (FAILED(pDevice->BeginScene())) { return; }
 
