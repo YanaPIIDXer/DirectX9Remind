@@ -157,6 +157,7 @@
     <ClCompile Include="GameFramework\Scene.cpp" />
     <ClCompile Include="GameFramework\Component.cpp" />
     <ClCompile Include="Rendering\Shader.cpp" />
+    <ClCompile Include="Rendering\Shader\SimpleShader.cpp" />
     <ClCompile Include="Scene\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GameFramework\ScenePlayer.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="GameFramework\Scene.h" />
     <ClInclude Include="GameFramework\ScenePlayer.h" />
     <ClInclude Include="Rendering\Shader.h" />
+    <ClInclude Include="Rendering\Shader\SimpleShader.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>

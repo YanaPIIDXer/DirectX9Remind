@@ -2,6 +2,7 @@
 #define TEAPOTCOMPONENT_H
 
 #include "GameFramework/Component.h"
+#include "Rendering/Shader/SimpleShader.h"
 
 // ティーポット描画Component
 class TeapotComponent : public Component
@@ -15,8 +16,7 @@ public:
 	virtual ~TeapotComponent();
 
 	// 更新
-	// こいつ自信は何もしない
-	virtual void Update(LPDIRECT3DDEVICE9 pDevice) override {}
+	virtual void Update(LPDIRECT3DDEVICE9 pDevice) override;
 
 	// 描画
 	virtual void Render(LPDIRECT3DDEVICE9 pDevice) override;
@@ -28,8 +28,12 @@ private:
 	// マテリアル
 	D3DMATERIAL9 material;
 
-	// ワールド～射影行列
-	D3DXHANDLE mWVP;
+	// シェーダ
+	SimpleShader shader;
+
+
+	// Shaderによる描画
+	void postRender(LPDIRECT3DDEVICE9 pDevice, LPD3DXEFFECT pEffect);
 };
 
 #endif		// #ifndef TEAPOTCOMPONENT_H

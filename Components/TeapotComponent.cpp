@@ -8,12 +8,14 @@ TeapotComponent::TeapotComponent(Actor* pInParent)
 	: Component(pInParent)
 	, pMesh(nullptr)
 	, material({})
-	, mWVP(nullptr)
+	, shader(std::bind(&TeapotComponent::postRender, this, std::placeholders::_1, std::placeholders::_2))
 {
 	if (FAILED(D3DXCreateTeapot(DirectXCore::GetDevice(), &pMesh, nullptr)))
 	{
 		MessageBox(nullptr, _T("ƒeƒB[ƒ|ƒbƒg‚ªÓ‚¯U‚Á‚½"), _T("Error"), MB_OK);
 	}
+
+	shader.Load();
 
 	material.Diffuse = { 1.0f, 1.0f, 1.0f, 1.0f };
 	material.Ambient = { 1.0f, 1.0f, 1.0f, 1.0f };
@@ -25,27 +27,22 @@ TeapotComponent::~TeapotComponent()
 	SAFE_RELEASE(pMesh);
 }
 
+// XV
+void TeapotComponent::Update(LPDIRECT3DDEVICE9 pDevice)
+{
+	shader.SetWorldMatrix(GetParent()->GetTransformMatrix());
+}
+
 // •`‰æ
 void TeapotComponent::Render(LPDIRECT3DDEVICE9 pDevice)
 {
 	if (pMesh == nullptr) { return; }
+	shader.Render(pDevice);
+}
 
-	//pDevice->SetMaterial(&material);
-	/*
-	pShaderEffect->SetTechnique(technique);
-	pShaderEffect->Begin(nullptr, 0);
-	pShaderEffect->BeginPass(0);
 
-	D3DXMATRIX viewMatrix, projMatrix;
-	pDevice->GetTransform(D3DTS_VIEW, &viewMatrix);
-	pDevice->GetTransform(D3DTS_PROJECTION, &projMatrix);
-
-	D3DXMATRIX mat = GetParent()->GetTransformMatrix() * viewMatrix * projMatrix;
-	pShaderEffect->SetMatrix(mWVP, &mat);
-
+// Shader‚Å‚Ì•`‰æ
+void TeapotComponent::postRender(LPDIRECT3DDEVICE9 pDevice, LPD3DXEFFECT pEffect)
+{
 	pMesh->DrawSubset(0);
-
-	pShaderEffect->EndPass();
-	pShaderEffect->End();
-	*/
 }
