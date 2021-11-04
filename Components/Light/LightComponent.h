@@ -22,6 +22,11 @@ public:
 	// ライトパラメータを取得
 	virtual const D3DLIGHT9& GetLight() const = 0;
 
+protected:
+
+	// ライトの更新
+	void UpdateLight();
+
 private:
 
 	// ライトのインデックス

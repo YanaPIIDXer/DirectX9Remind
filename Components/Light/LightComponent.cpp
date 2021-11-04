@@ -20,3 +20,10 @@ void LightComponent::Initialize()
 {
 	lightIndex = GetParent()->GetScene()->RegisterLight(GetLight());
 }
+
+
+// ライトの更新
+void LightComponent::UpdateLight()
+{
+	GetParent()->GetScene()->UpdateLight(lightIndex, GetLight());
+}
