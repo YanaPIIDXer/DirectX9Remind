@@ -17,12 +17,8 @@ public:
 	virtual ~LightComponent() = 0;
 
 	// ライトパラメータを取得
-	const D3DLIGHT9& GetLight() const { return light; }
+	virtual const D3DLIGHT9& GetLight() const = 0;
 
-private:
-
-	// ライトパラメータ
-	D3DLIGHT9 light;
 };
 
 #endif		// #ifndef LIGHTCOMPONENT_H

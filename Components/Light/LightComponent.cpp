@@ -4,7 +4,6 @@
 // コンストラクタ
 LightComponent::LightComponent(Actor* pInParent)
 	: Component(pInParent)
-	, light({})
 {
 }
 

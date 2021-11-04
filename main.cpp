@@ -6,21 +6,6 @@
 
 LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-// ============== TODO:後で色々とクラス化する時に整理する ===========================
-/*
-
-// DirectX関係の初期化
-bool InitD3D9(HWND hWnd)
-{
-	D3DLIGHT9 light = {};
-	light.Type = D3DLIGHT_DIRECTIONAL;
-	light.Diffuse = { 1.0f, 1.0f, 1.0f, 1.0f };
-	light.Range = 1000.0f;
-	light.Direction = D3DXVECTOR3(0.0f, -1.0f, 0.0f);
-}
-*/
-// ==================================================================================
-
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrev, LPSTR pArgs, int argc)
 {
 	const TCHAR* className = _T("DirectX9");
