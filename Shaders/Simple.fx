@@ -1,4 +1,7 @@
 float4x4 mWVP;
+float4x4 mWIT;
+
+const float3 lightDir = float3(-0.5f, -0.5f, 0.0f);
 
 struct VS_OUTPUT
 {
@@ -10,7 +13,9 @@ VS_OUTPUT Vert(float4 pos : POSITION, float3 normal : NORMAL)
 {
 	VS_OUTPUT Out;
 	Out.pos = mul(pos, mWVP);
-	Out.col = normal;
+	float3 L = -lightDir;
+	float3 N = normalize(mul(normal, (float3x3) mWIT));
+	Out.col = float4(0.2f, 0.2f, 0.2f, 1.0f) + (float4(1.0f, 0.5f, 0.2f, 1.0f) * max(0, dot(N, L)));
 	return Out;
 }
 

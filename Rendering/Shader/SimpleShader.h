@@ -33,6 +33,9 @@ private:
 	// World View Projection Matrix
 	D3DXHANDLE mWVP;
 
+	// World Inverse Transpose Matrix
+	D3DXHANDLE mWIT;
+
 };
 
 #endif		// #ifndef SIMPLESHADER_H
