@@ -43,6 +43,12 @@ void Scene::Update(LPDIRECT3DDEVICE9 pDevice)
 // •`‰æ
 void Scene::Render(LPDIRECT3DDEVICE9 pDevice)
 {
+	for (unsigned int i = 0; i < lights.size(); i++)
+	{
+		pDevice->SetLight(i, &lights[i]);
+		pDevice->LightEnable(i, TRUE);
+	}
+
 	for (auto it = actorList.begin(); it != actorList.end(); ++it)
 	{
 		(*it)->Render(pDevice);
