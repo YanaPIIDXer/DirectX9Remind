@@ -13,7 +13,7 @@ bool InitD3D9(HWND hWnd)
 {
 	if (!DirectXCore::Initialize(hWnd)) { return false; }
 
-	auto pDevice = DirectXCore::GetDevice();
+	auto *pDevice = DirectXCore::GetDevice();
 
 	D3DLIGHT9 light = {};
 	light.Type = D3DLIGHT_DIRECTIONAL;
@@ -34,7 +34,7 @@ bool InitD3D9(HWND hWnd)
 // •`‰æ
 void Render()
 {
-	auto pDevice = DirectXCore::GetDevice();
+	auto *pDevice = DirectXCore::GetDevice();
 
 	pDevice->Clear(0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 255), 1.0f, 0);
 
