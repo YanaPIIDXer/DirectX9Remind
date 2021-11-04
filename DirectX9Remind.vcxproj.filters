@@ -114,4 +114,7 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shaders\Teapot.fx" />
+  </ItemGroup>
 </Project>
