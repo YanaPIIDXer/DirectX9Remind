@@ -63,6 +63,9 @@
     <ClCompile Include="Actors\Camera\PlayerCamera.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Rendering\Shader.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -113,8 +116,11 @@
     <ClInclude Include="Actors\Camera\PlayerCamera.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Rendering\Shader.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Shaders\Teapot.fx" />
+    <FxCompile Include="Shaders\Simple.fx" />
   </ItemGroup>
 </Project>
