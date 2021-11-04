@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "GameScene.h"
+#include "Actors/TeapotActor.h"
 
 // コンストラクタ
 GameScene::GameScene()
@@ -14,6 +15,7 @@ GameScene::~GameScene()
 // シーン開始
 void GameScene::BeginScene()
 {
+	new TeapotActor(this);
 }
 
 
