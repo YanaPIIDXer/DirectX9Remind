@@ -29,7 +29,7 @@ void SimpleShader::OnLoad(LPD3DXEFFECT pEffect)
 // ƒJƒƒ‰‚ÌÀ•W‚ğİ’è
 void SimpleShader::SetCameraPosition(const D3DXVECTOR3& position)
 {
-
+	cameraPos = position;
 }
 
 

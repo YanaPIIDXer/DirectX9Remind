@@ -17,7 +17,9 @@ VS_OUTPUT Vert(float4 pos : POSITION, float3 normal : NORMAL)
 	float3 L = -lightDir;
 	float3 N = normalize(mul(normal, (float3x3) mWIT));
 	float theta = max(0, dot(N, L));
-	Out.col = (float4(1.0f, 1.0f, 1.0f, 1.0f) * theta);
+	Out.col = float4(1.0f, 1.0f, 1.0f, 1.0f) * theta;
+	float3 halfVec = normalize(normalize(L) + normalize(cameraPos - Out.pos));
+	Out.col.rgb += max(0, dot(normal, halfVec));
 	return Out;
 }
 
