@@ -54,7 +54,7 @@
     <ClCompile Include="Components\CameraComponent.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Actors\CameraActor.cpp">
+    <ClCompile Include="Actors\Camera\CameraActor.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Components\Controller\PlayerController.cpp">
@@ -101,7 +101,7 @@
     <ClInclude Include="Components\CameraComponent.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Actors\CameraActor.h">
+    <ClInclude Include="Actors\Camera\CameraActor.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Components\Controller\PlayerController.h">
