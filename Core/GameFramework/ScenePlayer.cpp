@@ -8,6 +8,7 @@ ScenePlayer::ScenePlayer(Scene* pInitialScene)
 	: pCurrentScene(pInitialScene)
 	, pPrevScene(nullptr)
 {
+	pCurrentScene->BeginScene();
 }
 
 // デストラクタ
@@ -29,6 +30,7 @@ void ScenePlayer::Update()
 	{
 		pPrevScene = pCurrentScene;
 		pCurrentScene.reset(pCurrentScene->SweepNextScene());
+		pCurrentScene->BeginScene();
 	}
 }
 

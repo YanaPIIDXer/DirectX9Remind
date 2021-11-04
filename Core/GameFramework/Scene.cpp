@@ -36,6 +36,8 @@ void Scene::Update()
 			++it;
 		}
 	}
+
+	Tick();
 }
 
 // •`‰æ

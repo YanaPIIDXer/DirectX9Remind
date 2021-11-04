@@ -18,7 +18,10 @@ public:
 
 	// 次のシーンが存在するか？
 	bool HasNextScene() const { return (pNextScene != nullptr); }
-	
+
+	// シーン開始
+	virtual void BeginScene() = 0;
+
 	// 更新
 	void Update();
 
@@ -43,6 +46,9 @@ protected:
 
 	// 次のシーンをセット
 	void SetNextScene(Scene* pScene);
+
+	// 毎フレームの処理
+	virtual void Tick() = 0;
 
 private:
 

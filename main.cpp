@@ -1,18 +1,19 @@
 #include "stdafx.h"
 #include "Core/DirectX/DirectXCore.h"
 #include <d3dx9.h>
+#include "Core/GameFramework/ScenePlayer.h"
+#include "Scene/GameScene.h"
 
 LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 // ============== TODO:後で色々とクラス化する時に整理する ===========================
-
+/*
 LPD3DXMESH pTeapot = nullptr;
 
 // DirectX関係の初期化
 bool InitD3D9(HWND hWnd)
 {
 	if (!DirectXCore::Initialize(hWnd)) { return false; }
-
 	auto *pDevice = DirectXCore::GetDevice();
 
 	D3DLIGHT9 light = {};
@@ -71,7 +72,7 @@ void ReleaseD3D9()
 {
 	SAFE_RELEASE(pTeapot);
 }
-
+*/
 // ==================================================================================
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrev, LPSTR pArgs, int argc)
@@ -87,11 +88,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrev, LPSTR pArgs, int argc)
 
 	MSG msg = {};
 
-	if (!InitD3D9(hWnd))
+	if (!DirectXCore::Initialize(hWnd))
 	{
 		MessageBox(nullptr, _T("DirectXの初期化に失敗しました"), _T("Error"), MB_OK);
 		msg.message = WM_QUIT;		// メッセージループに入らず、安全に解放処理に進むように
 	}
+
+	ScenePlayer scenePlayer(new GameScene());
 
 	while (msg.message != WM_QUIT)
 	{
@@ -102,11 +105,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrev, LPSTR pArgs, int argc)
 		}
 		else
 		{
-			Render();
+			scenePlayer.Update();
+			scenePlayer.Render();
 		}
 	}
 
-	ReleaseD3D9();
 	UnregisterClass(className, hInstance);
 	return 0;
 }
