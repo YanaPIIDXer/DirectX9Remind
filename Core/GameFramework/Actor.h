@@ -18,6 +18,9 @@ public:
 	// XV
 	virtual void Update() = 0;
 
+	// •`‰æ
+	void Render();
+
 	// À•W‚ğæ“¾
 	const D3DXVECTOR3& GetPosition() const { return position; }
 

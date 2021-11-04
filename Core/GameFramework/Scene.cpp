@@ -37,6 +37,10 @@ void Scene::Update()
 // •`‰æ
 void Scene::Render(LPDIRECT3DDEVICE9 pDevice)
 {
+	for (auto it = actorList.begin(); it != actorList.end(); ++it)
+	{
+		(*it)->Render();
+	}
 }
 
 

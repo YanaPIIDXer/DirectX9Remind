@@ -17,3 +17,8 @@ Actor::Actor(Scene* pInScene, const D3DXVECTOR3 &inPosition, const D3DXVECTOR3 &
 Actor::~Actor()
 {
 }
+
+// •`‰æ
+void Actor::Render()
+{
+}
