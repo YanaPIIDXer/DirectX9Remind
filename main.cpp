@@ -12,17 +12,11 @@ LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 // DirectXŠÖŒW‚Ì‰Šú‰»
 bool InitD3D9(HWND hWnd)
 {
-	if (!DirectXCore::Initialize(hWnd)) { return false; }
-	auto *pDevice = DirectXCore::GetDevice();
-
 	D3DLIGHT9 light = {};
 	light.Type = D3DLIGHT_DIRECTIONAL;
 	light.Diffuse = { 1.0f, 1.0f, 1.0f, 1.0f };
 	light.Range = 1000.0f;
 	light.Direction = D3DXVECTOR3(0.0f, -1.0f, 0.0f);
-	pDevice->SetLight(0, &light);
-
-	return true;
 }
 */
 // ==================================================================================

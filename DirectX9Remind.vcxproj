@@ -147,6 +147,7 @@
     <ClCompile Include="Components\Light\LightComponent.cpp" />
     <ClCompile Include="Components\TeapotComponent.cpp" />
     <ClCompile Include="Core\DirectX\DirectXCore.cpp" />
+    <ClCompile Include="Components\Light\DirectionalLightComponent.cpp" />
     <ClCompile Include="GameFramework\Actor.cpp" />
     <ClCompile Include="GameFramework\Scene.cpp" />
     <ClCompile Include="GameFramework\Component.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Components\Light\LightComponent.h" />
     <ClInclude Include="Components\TeapotComponent.h" />
     <ClInclude Include="Core\DirectX\DirectXCore.h" />
+    <ClInclude Include="Components\Light\DirectionalLightComponent.h" />
     <ClInclude Include="GameFramework\Actor.h" />
     <ClInclude Include="GameFramework\Component.h" />
     <ClInclude Include="GameFramework\Scene.h" />
