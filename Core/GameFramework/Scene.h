@@ -1,6 +1,10 @@
 #ifndef SCENE_H
 #define SCENE_H
 
+#include <vector>
+
+class Actor;
+
 // シーンクラス
 class Scene
 {
@@ -29,6 +33,12 @@ public:
 		return pScene;
 	}
 
+	// アクターを登録
+	void RegisterActor(Actor* pActor)
+	{
+		actorList.push_back(pActor);
+	}
+
 protected:
 
 	// 次のシーンをセット
@@ -38,6 +48,9 @@ private:
 
 	// 次のシーン
 	Scene* pNextScene;
+
+	// アクターリスト
+	std::vector<Actor*> actorList;
 
 
 	// 次のシーンを解放

@@ -15,6 +15,9 @@ public:
 	// デストラクタ
 	virtual ~Actor() = 0;
 
+	// 更新
+	virtual void Update() = 0;
+
 	// 座標を取得
 	const D3DXVECTOR3& GetPosition() const { return position; }
 
