@@ -6,6 +6,7 @@
 // コンストラクタ
 LightComponent::LightComponent(Actor* pInParent)
 	: Component(pInParent)
+	, lightIndex(-1)
 {
 }
 
@@ -17,5 +18,5 @@ LightComponent::~LightComponent()
 // 初期化
 void LightComponent::Initialize()
 {
-	GetParent()->GetScene()->RegisterLight(GetLight());
+	lightIndex = GetParent()->GetScene()->RegisterLight(GetLight());
 }
