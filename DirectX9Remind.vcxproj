@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actors\Camera\CameraActor.cpp" />
+    <ClCompile Include="Actors\Camera\PlayerCamera.cpp" />
     <ClCompile Include="Actors\DirectionalLightActor.cpp" />
     <ClCompile Include="Actors\TeapotActor.cpp" />
     <ClCompile Include="Components\CameraComponent.cpp" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actors\Camera\CameraActor.h" />
+    <ClInclude Include="Actors\Camera\PlayerCamera.h" />
     <ClInclude Include="Actors\DirectionalLightActor.h" />
     <ClInclude Include="Actors\TeapotActor.h" />
     <ClInclude Include="Components\CameraComponent.h" />

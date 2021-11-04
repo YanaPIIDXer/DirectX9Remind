@@ -2,7 +2,7 @@
 #include "GameScene.h"
 #include "Actors/TeapotActor.h"
 #include "Actors/DirectionalLightActor.h"
-#include "Actors/CameraActor.h"
+#include "Actors/Camera/PlayerCamera.h"
 
 // コンストラクタ
 GameScene::GameScene()
@@ -20,7 +20,7 @@ void GameScene::BeginScene()
 	auto *pTeapot = new TeapotActor(this);
 	pTeapot->SetPosition(D3DXVECTOR3(0.0f, 0.0f, 10.0f));
 	new DirectionalLightActor(this);
-	new CameraActor(this);
+	new PlayerCamera(this);
 }
 
 
