@@ -4,10 +4,10 @@
 #include "Component.h"
 
 // コンストラクタ
-Actor::Actor(Scene* pInScene, const D3DXVECTOR3 &inPosition, const D3DXVECTOR3 &inEulerAngle)
+Actor::Actor(Scene* pInScene)
 	: pScene(pInScene)
-	, position(inPosition)
-	, eulerAngle(inEulerAngle)
+	, position(0.0f, 0.0f, 0.0f)
+	, eulerAngle(0.0f, 0.0f, 0.0f)
 	, scale(1.0f, 1.0f, 1.0f)
 	, bIsDestroyed(false)
 {

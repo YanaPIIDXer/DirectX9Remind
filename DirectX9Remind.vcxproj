@@ -143,8 +143,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actors\CameraActor.cpp" />
     <ClCompile Include="Actors\DirectionalLightActor.cpp" />
     <ClCompile Include="Actors\TeapotActor.cpp" />
+    <ClCompile Include="Components\CameraComponent.cpp" />
     <ClCompile Include="Components\Light\LightComponent.cpp" />
     <ClCompile Include="Components\TeapotComponent.cpp" />
     <ClCompile Include="Core\DirectX\DirectXCore.cpp" />
@@ -157,8 +159,10 @@
     <ClCompile Include="GameFramework\ScenePlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actors\CameraActor.h" />
     <ClInclude Include="Actors\DirectionalLightActor.h" />
     <ClInclude Include="Actors\TeapotActor.h" />
+    <ClInclude Include="Components\CameraComponent.h" />
     <ClInclude Include="Components\Light\LightComponent.h" />
     <ClInclude Include="Components\TeapotComponent.h" />
     <ClInclude Include="Core\DirectX\DirectXCore.h" />

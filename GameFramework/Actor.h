@@ -12,8 +12,7 @@ class Actor
 public:
 
 	// コンストラクタ
-	Actor(Scene* pInScene, const D3DXVECTOR3 &inPosition = D3DXVECTOR3(0.0f, 0.0f, 0.0f),
-		const D3DXVECTOR3 &inEulerAngle = D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	Actor(Scene* pInScene);
 
 	// デストラクタ
 	virtual ~Actor() = 0;

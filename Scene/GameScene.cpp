@@ -2,6 +2,7 @@
 #include "GameScene.h"
 #include "Actors/TeapotActor.h"
 #include "Actors/DirectionalLightActor.h"
+#include "Actors/CameraActor.h"
 
 // コンストラクタ
 GameScene::GameScene()
@@ -18,6 +19,7 @@ void GameScene::BeginScene()
 {
 	new TeapotActor(this);
 	new DirectionalLightActor(this);
+	new CameraActor(this);
 }
 
 
