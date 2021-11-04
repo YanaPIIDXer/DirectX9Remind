@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Core/DirectX/DirectXCore.h"
 #include <d3dx9.h>
-#include "Core/GameFramework/ScenePlayer.h"
+#include "GameFramework/ScenePlayer.h"
 #include "Scene/GameScene.h"
 
 LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);

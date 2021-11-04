@@ -1,7 +1,7 @@
 #ifndef GAMESCENE_H
 #define GAMESCENE_H
 
-#include "Core/GameFramework/Scene.h"
+#include "GameFramework/Scene.h"
 
 // ÉQÅ[ÉÄÉVÅ[Éì
 class GameScene : public Scene
