@@ -34,10 +34,10 @@ void Actor::Update()
 }
 
 // •`‰æ
-void Actor::Render()
+void Actor::Render(LPDIRECT3DDEVICE9 pDevice)
 {
 	for (auto it = components.begin(); it != components.end(); ++it)
 	{
-		(*it)->Render();
+		(*it)->Render(pDevice);
 	}
 }

@@ -18,7 +18,7 @@ public:
 	virtual void Update() = 0;
 
 	// •`‰æ
-	virtual void Render() {}
+	virtual void Render(LPDIRECT3DDEVICE9 pDevice) {}
 
 protected:
 

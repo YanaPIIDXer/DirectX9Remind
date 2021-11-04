@@ -43,7 +43,7 @@ void Scene::Render(LPDIRECT3DDEVICE9 pDevice)
 {
 	for (auto it = actorList.begin(); it != actorList.end(); ++it)
 	{
-		(*it)->Render();
+		(*it)->Render(pDevice);
 	}
 }
 

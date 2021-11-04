@@ -22,7 +22,7 @@ public:
 	void Update();
 
 	// •`‰æ
-	void Render();
+	void Render(LPDIRECT3DDEVICE9 pDevice);
 
 	// À•W‚ğæ“¾
 	const D3DXVECTOR3& GetPosition() const { return position; }
