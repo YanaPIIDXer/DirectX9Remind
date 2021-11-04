@@ -1,7 +1,7 @@
 #ifndef TEAPOTCOMPONENT_H
 #define TEAPOTCOMPONENT_H
 
-#include "Core/GameFramework/Component.h"
+#include "GameFramework/Component.h"
 
 // ティーポット描画Component
 class TeapotComponent : public Component
@@ -16,7 +16,7 @@ public:
 
 	// 更新
 	// こいつ自信は何もしない
-	virtual void Update() override {}
+	virtual void Update(LPDIRECT3DDEVICE9 pDevice) override {}
 
 	// 描画
 	virtual void Render(LPDIRECT3DDEVICE9 pDevice) override;

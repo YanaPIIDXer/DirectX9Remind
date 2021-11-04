@@ -15,7 +15,7 @@ public:
 	virtual ~Component() = 0;
 
 	// çXêV
-	virtual void Update() = 0;
+	virtual void Update(LPDIRECT3DDEVICE9 pDevice) = 0;
 
 	// ï`âÊ
 	virtual void Render(LPDIRECT3DDEVICE9 pDevice) {}

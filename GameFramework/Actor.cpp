@@ -24,11 +24,11 @@ Actor::~Actor()
 }
 
 // XV
-void Actor::Update()
+void Actor::Update(LPDIRECT3DDEVICE9 pDevice)
 {
 	for (auto it = components.begin(); it != components.end(); ++it)
 	{
-		(*it)->Update();
+		(*it)->Update(pDevice);
 	}
 	Tick();
 }

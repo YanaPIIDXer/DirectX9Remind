@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "TeapotComponent.h"
 #include "Core/DirectX/DirectXCore.h"
-#include "Core/GameFramework/Actor.h"
+#include "GameFramework/Actor.h"
 
 // コンストラクタ
 TeapotComponent::TeapotComponent(Actor* pInParent)

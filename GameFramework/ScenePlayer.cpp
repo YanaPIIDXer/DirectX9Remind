@@ -25,7 +25,8 @@ void ScenePlayer::Update()
 		pPrevScene.reset();
 	}
 
-	pCurrentScene->Update();
+	auto* pDevice = DirectXCore::GetDevice();
+	pCurrentScene->Update(pDevice);
 	if (pCurrentScene->HasNextScene())
 	{
 		pPrevScene = pCurrentScene;

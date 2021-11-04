@@ -19,7 +19,7 @@ Scene::~Scene()
 }
 
 // XV
-void Scene::Update()
+void Scene::Update(LPDIRECT3DDEVICE9 pDevice)
 {
 	auto it = actorList.begin();
 	while (it != actorList.end())
@@ -32,7 +32,7 @@ void Scene::Update()
 		}
 		else
 		{
-			pActor->Update();
+			pActor->Update(pDevice);
 			++it;
 		}
 	}

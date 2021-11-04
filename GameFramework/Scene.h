@@ -23,7 +23,7 @@ public:
 	virtual void BeginScene() = 0;
 
 	// çXêV
-	void Update();
+	void Update(LPDIRECT3DDEVICE9 pDevice);
 
 	// ï`âÊ
 	void Render(LPDIRECT3DDEVICE9 pDevice);

@@ -23,11 +23,6 @@ bool InitD3D9(HWND hWnd)
 	pDevice->SetLight(0, &light);
 	pDevice->LightEnable(0, TRUE);
 
-	if (FAILED(D3DXCreateTeapot(pDevice, &pTeapot, nullptr)))
-	{
-		MessageBox(nullptr, _T("ティーポットが砕け散った"), _T("Error"), MB_OK);
-		return false;
-	}
 	return true;
 }
 
@@ -49,12 +44,6 @@ void Render()
 
 	pDevice->EndScene();
 	pDevice->Present(nullptr, nullptr, nullptr, nullptr);
-}
-
-// DirectX関係の解放
-void ReleaseD3D9()
-{
-	SAFE_RELEASE(pTeapot);
 }
 */
 // ==================================================================================
