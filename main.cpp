@@ -38,6 +38,8 @@ bool InitD3D9(HWND hWnd)
 	}
 
 	pDevice->SetRenderState(D3DRS_ZENABLE, TRUE);
+	pDevice->SetRenderState(D3DRS_LIGHTING, TRUE);
+	pDevice->SetRenderState(D3DRS_AMBIENT, 0x00202020);
 
 	if (FAILED(D3DXCreateTeapot(pDevice, &pTeapot, nullptr)))
 	{
@@ -65,10 +67,23 @@ void Render()
 	D3DXMatrixPerspectiveFovLH(&projMat, D3DXToRadian(45.0f),  1.0f, 0.1f, 1000.0f);
 	pDevice->SetTransform(D3DTS_PROJECTION, &projMat);
 
-
 	D3DXMATRIX matTeapot;
 	D3DXMatrixTranslation(&matTeapot, 0.0f, 0.0f, -5.0f);
 	pDevice->SetTransform(D3DTS_WORLD, &matTeapot);
+
+	D3DMATERIAL9 teapotMaterial = {};
+	teapotMaterial.Diffuse = { 1.0f, 1.0f, 1.0f, 1.0f };
+	teapotMaterial.Ambient = { 1.0f, 1.0f, 1.0f, 1.0f };
+	pDevice->SetMaterial(&teapotMaterial);
+
+	D3DLIGHT9 light = {};
+	light.Type = D3DLIGHT_DIRECTIONAL;
+	light.Diffuse = { 1.0f, 1.0f, 1.0f, 1.0f };
+	light.Range = 1000.0f;
+	light.Direction = D3DXVECTOR3(0.0f, -1.0f, 0.0f);
+	pDevice->SetLight(0, &light);
+	pDevice->LightEnable(0, TRUE);
+
 	pTeapot->DrawSubset(0);
 
 	pDevice->EndScene();
