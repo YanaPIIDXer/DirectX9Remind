@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <Windows.h>
 #include <tchar.h>
 #include <d3d9.h>
@@ -5,9 +6,6 @@
 LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 // ============== TODO:後で色々とクラス化する時に整理する ===========================
-
-// 安全な解放
-#define SAFE_RELEASE(p) if (p != nullptr) { p->Release(); p = nullptr; }
 
 LPDIRECT3D9 pD3D9 = nullptr;
 LPDIRECT3DDEVICE9 pDevice = nullptr;
