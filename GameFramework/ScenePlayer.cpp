@@ -42,6 +42,10 @@ void ScenePlayer::Render()
 
 	if (FAILED(pDevice->BeginScene())) { return; }
 
+	D3DXMATRIX projMat;
+	D3DXMatrixPerspectiveFovLH(&projMat, D3DXToRadian(45.0f), 1.0f, 0.1f, 1000.0f);
+	pDevice->SetTransform(D3DTS_PROJECTION, &projMat);
+
 	pCurrentScene->Render(pDevice);
 
 	pDevice->EndScene();

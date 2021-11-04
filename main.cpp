@@ -47,10 +47,6 @@ void Render()
 	D3DXMatrixLookAtLH(&viewMatrix, &eye, &at, &up);
 	pDevice->SetTransform(D3DTS_VIEW, &viewMatrix);
 
-	D3DXMATRIX projMat;
-	D3DXMatrixPerspectiveFovLH(&projMat, D3DXToRadian(45.0f),  1.0f, 0.1f, 1000.0f);
-	pDevice->SetTransform(D3DTS_PROJECTION, &projMat);
-
 	pDevice->EndScene();
 	pDevice->Present(nullptr, nullptr, nullptr, nullptr);
 }
