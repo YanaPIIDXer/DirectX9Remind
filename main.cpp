@@ -37,7 +37,6 @@ bool InitD3D9(HWND hWnd)
 		}
 	}
 
-	pDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	pDevice->SetRenderState(D3DRS_ZENABLE, TRUE);
 
 	if (FAILED(D3DXCreateTeapot(pDevice, &pTeapot, nullptr)))
