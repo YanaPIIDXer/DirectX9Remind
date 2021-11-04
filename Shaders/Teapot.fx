@@ -17,7 +17,7 @@ float4 Pixel(VS_OUTPUT In) : COLOR
 	return float4(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
-technique
+technique Teapot
 {
 	pass P0
 	{

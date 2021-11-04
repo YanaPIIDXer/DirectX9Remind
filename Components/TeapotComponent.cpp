@@ -8,6 +8,9 @@ TeapotComponent::TeapotComponent(Actor* pInParent)
 	: Component(pInParent)
 	, pMesh(nullptr)
 	, material({})
+	, pShaderEffect(nullptr)
+	, technique(nullptr)
+	, mWVP(nullptr)
 {
 	if (FAILED(D3DXCreateTeapot(DirectXCore::GetDevice(), &pMesh, nullptr)))
 	{
@@ -16,23 +19,46 @@ TeapotComponent::TeapotComponent(Actor* pInParent)
 
 	material.Diffuse = { 1.0f, 1.0f, 1.0f, 1.0f };
 	material.Ambient = { 1.0f, 1.0f, 1.0f, 1.0f };
+
+	// シェーダ読み込み
+	if (SUCCEEDED(D3DXCreateEffectFromFile(DirectXCore::GetDevice(), _T("Shaders/Teapot.fx"), nullptr, nullptr, 0, nullptr, &pShaderEffect, nullptr)))
+	{
+		technique = pShaderEffect->GetTechniqueByName("Teapot");
+		mWVP = pShaderEffect->GetParameterByName(nullptr, "mWVP");
+	}
+	else
+	{
+		MessageBox(nullptr, _T("Shaderの読み込みに失敗しました"), _T("Error"), MB_OK);
+	}
 }
 
 // デストラクタ
 TeapotComponent::~TeapotComponent()
 {
+	SAFE_RELEASE(pShaderEffect);
 	SAFE_RELEASE(pMesh);
 }
 
 // 描画
 void TeapotComponent::Render(LPDIRECT3DDEVICE9 pDevice)
 {
-	if (pMesh == nullptr) { return; }
+	if (pMesh == nullptr || pShaderEffect == nullptr) { return; }
 
-	pDevice->SetMaterial(&material);
+	//pDevice->SetMaterial(&material);
 
-	D3DXMATRIX mat = GetParent()->GetTransformMatrix();
-	pDevice->SetTransform(D3DTS_WORLD, &mat);
+	pShaderEffect->SetTechnique(technique);
+	pShaderEffect->Begin(nullptr, 0);
+	pShaderEffect->BeginPass(0);
+
+	D3DXMATRIX viewMatrix, projMatrix;
+	pDevice->GetTransform(D3DTS_VIEW, &viewMatrix);
+	pDevice->GetTransform(D3DTS_PROJECTION, &projMatrix);
+
+	D3DXMATRIX mat = GetParent()->GetTransformMatrix() * viewMatrix * projMatrix;
+	pShaderEffect->SetMatrix(mWVP, &mat);
 
 	pMesh->DrawSubset(0);
+
+	pShaderEffect->EndPass();
+	pShaderEffect->End();
 }

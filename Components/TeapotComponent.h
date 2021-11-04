@@ -27,6 +27,15 @@ private:
 
 	// マテリアル
 	D3DMATERIAL9 material;
+
+	// シェーダ
+	LPD3DXEFFECT pShaderEffect;
+
+	// テクニック
+	D3DXHANDLE technique;
+
+	// ワールド～射影行列
+	D3DXHANDLE mWVP;
 };
 
 #endif		// #ifndef TEAPOTCOMPONENT_H
