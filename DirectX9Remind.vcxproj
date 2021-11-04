@@ -144,11 +144,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\DirectX\DirectXCore.cpp" />
+    <ClCompile Include="Core\GameFramework\Actor.cpp" />
     <ClCompile Include="Core\GameFramework\Scene.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\DirectX\DirectXCore.h" />
+    <ClInclude Include="Core\GameFramework\Actor.h" />
     <ClInclude Include="Core\GameFramework\Scene.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
