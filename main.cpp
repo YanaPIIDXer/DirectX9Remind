@@ -21,7 +21,6 @@ bool InitD3D9(HWND hWnd)
 	light.Range = 1000.0f;
 	light.Direction = D3DXVECTOR3(0.0f, -1.0f, 0.0f);
 	pDevice->SetLight(0, &light);
-	pDevice->LightEnable(0, TRUE);
 
 	return true;
 }

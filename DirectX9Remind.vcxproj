@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actors\TeapotActor.cpp" />
+    <ClCompile Include="Components\Light\LightComponent.cpp" />
     <ClCompile Include="Components\TeapotComponent.cpp" />
     <ClCompile Include="Core\DirectX\DirectXCore.cpp" />
     <ClCompile Include="GameFramework\Actor.cpp" />
@@ -155,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actors\TeapotActor.h" />
+    <ClInclude Include="Components\Light\LightComponent.h" />
     <ClInclude Include="Components\TeapotComponent.h" />
     <ClInclude Include="Core\DirectX\DirectXCore.h" />
     <ClInclude Include="GameFramework\Actor.h" />
