@@ -1,5 +1,6 @@
 float4x4 mWVP;
 float4x4 mWIT;
+float3 cameraPos;
 
 const float3 lightDir = float3(-0.5f, -0.5f, 0.0f);
 

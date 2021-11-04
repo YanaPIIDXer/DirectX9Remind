@@ -40,6 +40,12 @@ void TeapotComponent::Render(LPDIRECT3DDEVICE9 pDevice)
 	shader.Render(pDevice);
 }
 
+// ƒJƒƒ‰‚ÌÀ•W‚ğİ’è
+void TeapotComponent::SetCameraPosition(const D3DXVECTOR3& position)
+{
+
+}
+
 
 // Shader‚Å‚Ì•`‰æ
 void TeapotComponent::postRender(LPDIRECT3DDEVICE9 pDevice, LPD3DXEFFECT pEffect)

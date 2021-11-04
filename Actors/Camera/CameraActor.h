@@ -8,7 +8,7 @@
 typedef IObservable<D3DXVECTOR3> PositionObservable;
 
 // カメラアクター
-class CameraActor : public Actor, IObserver<D3DXVECTOR3>
+class CameraActor : public Actor, public IObserver<D3DXVECTOR3>
 {
 public:
 

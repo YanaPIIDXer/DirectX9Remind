@@ -21,6 +21,9 @@ public:
 	// 描画
 	virtual void Render(LPDIRECT3DDEVICE9 pDevice) override;
 
+	// カメラの座標を設定
+	void SetCameraPosition(const D3DXVECTOR3& position);
+
 private:
 	// メッシュ
 	LPD3DXMESH pMesh;

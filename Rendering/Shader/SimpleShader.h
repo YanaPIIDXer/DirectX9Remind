@@ -17,6 +17,9 @@ public:
 	// ワールド行列を設定
 	void SetWorldMatrix(const D3DXMATRIX& mInWorld) { mWorld = mInWorld; }
 
+	// カメラの座標を設定
+	void SetCameraPosition(const D3DXVECTOR3& position);
+
 protected:
 
 	// 読み込まれた
@@ -35,6 +38,10 @@ private:
 
 	// World Inverse Transpose Matrix
 	D3DXHANDLE mWIT;
+
+	// カメラの座標・ハンドラ
+	D3DXVECTOR3 cameraPos;
+	D3DXHANDLE cameraPosHandle;
 
 };
 
