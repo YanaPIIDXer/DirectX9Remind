@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "GameScene.h"
 #include "Actors/TeapotActor.h"
+#include "Actors/DirectionalLightActor.h"
 
 // コンストラクタ
 GameScene::GameScene()
@@ -16,6 +17,7 @@ GameScene::~GameScene()
 void GameScene::BeginScene()
 {
 	new TeapotActor(this);
+	new DirectionalLightActor(this);
 }
 
 

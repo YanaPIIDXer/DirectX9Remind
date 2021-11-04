@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actors\DirectionalLightActor.cpp" />
     <ClCompile Include="Actors\TeapotActor.cpp" />
     <ClCompile Include="Components\Light\LightComponent.cpp" />
     <ClCompile Include="Components\TeapotComponent.cpp" />
@@ -156,6 +157,7 @@
     <ClCompile Include="GameFramework\ScenePlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actors\DirectionalLightActor.h" />
     <ClInclude Include="Actors\TeapotActor.h" />
     <ClInclude Include="Components\Light\LightComponent.h" />
     <ClInclude Include="Components\TeapotComponent.h" />
