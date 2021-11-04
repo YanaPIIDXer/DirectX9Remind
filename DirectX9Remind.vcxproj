@@ -181,6 +181,7 @@
     <ClInclude Include="Rendering\Shader\SimpleShader.h" />
     <ClInclude Include="Scene\GameScene.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Util\Observer.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\Simple.fx">
