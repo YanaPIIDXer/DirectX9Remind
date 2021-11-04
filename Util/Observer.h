@@ -6,8 +6,6 @@ template <typename T>
 class IObservable
 {
 public:
-	virtual ~IPositionObservable() = 0;
-
 	// ’Ê’m
 	virtual void OnNotice(const T& item) = 0;
 
@@ -20,8 +18,6 @@ template<typename T>
 class IObserver
 {
 public:
-	virtual ~IObserver() = 0;
-
 	// “o˜^
 	virtual void Register(IObservable<T>* pObservable) = 0;
 

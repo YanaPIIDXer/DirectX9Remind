@@ -2,8 +2,13 @@
 #define CAMERAACTOR_H
 
 #include "GameFramework/Actor.h"
+#include "Util/Observer.h"
+#include <vector>
 
-class CameraActor : public Actor
+typedef IObservable<D3DXVECTOR3> PositionObservable;
+
+// カメラアクター
+class CameraActor : public Actor, IObserver<D3DXVECTOR3>
 {
 public:
 
@@ -12,6 +17,21 @@ public:
 
 	// デストラクタ
 	virtual ~CameraActor();
+
+	// === IObserverの実装 ===
+	virtual void Register(PositionObservable* pObservable) override;
+	virtual void Unregister(PositionObservable* pObservable) override;
+	// ======================
+
+protected:
+
+	// 毎フレームの処理
+	virtual void Tick() override;
+
+private:
+
+	// 座標を受け取るオブジェクトのリスト
+	std::vector<PositionObservable*> positionObservables;
 };
 
 #endif		// #ifndef CAMERAACTOR_H
