@@ -42,6 +42,9 @@ public:
 	// Šgk‚ğİ’è
 	void SetScale(const D3DXVECTOR3& inScale) { scale = inScale; }
 
+	// p¨s—ñ‚ğæ“¾
+	D3DXMATRIX GetTransformMatrix() const;
+
 	// ”jŠü.
 	void Destroy()
 	{

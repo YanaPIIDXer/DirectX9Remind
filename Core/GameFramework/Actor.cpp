@@ -41,3 +41,13 @@ void Actor::Render(LPDIRECT3DDEVICE9 pDevice)
 		(*it)->Render(pDevice);
 	}
 }
+
+// épê®çsóÒÇéÊìæ
+D3DXMATRIX Actor::GetTransformMatrix() const
+{
+	D3DXMATRIX positionMatrix, rotationMatrix, scaleMatrix;
+	D3DXMatrixTranslation(&positionMatrix, position.x, position.y, position.z);
+	D3DXMatrixRotationYawPitchRoll(&rotationMatrix, eulerAngle.y, eulerAngle.x, eulerAngle.z);
+	D3DXMatrixScaling(&scaleMatrix, scale.x, scale.y, scale.z);
+	return scaleMatrix * rotationMatrix * positionMatrix;
+}
