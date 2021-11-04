@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Core/DirectXCore.h"
+#include "Core/DirectX/DirectXCore.h"
 #include <d3dx9.h>
 
 LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
