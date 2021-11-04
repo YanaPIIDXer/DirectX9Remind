@@ -14,6 +14,9 @@ public:
 	// デストラクタ
 	virtual ~Component() = 0;
 
+	// 初期化
+	virtual void Initialize() {}
+
 	// 更新
 	virtual void Update(LPDIRECT3DDEVICE9 pDevice) = 0;
 

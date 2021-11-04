@@ -15,6 +15,9 @@ public:
 
 	// デストラクタ
 	virtual ~LightComponent() = 0;
+	
+	// 初期化
+	virtual void Initialize() override;
 
 	// ライトパラメータを取得
 	virtual const D3DLIGHT9& GetLight() const = 0;

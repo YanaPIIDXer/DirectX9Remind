@@ -51,3 +51,11 @@ D3DXMATRIX Actor::GetTransformMatrix() const
 	D3DXMatrixScaling(&scaleMatrix, scale.x, scale.y, scale.z);
 	return scaleMatrix * rotationMatrix * positionMatrix;
 }
+
+
+// コンポーネント追加
+void Actor::AddComponent(Component* pComponent)
+{
+	components.push_back(pComponent);
+	pComponent->Initialize();
+}

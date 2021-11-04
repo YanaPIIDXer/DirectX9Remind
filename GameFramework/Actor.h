@@ -55,13 +55,13 @@ public:
 	// 破棄されているか？
 	bool IsDestroyed() const { return bIsDestroyed; }
 
+	// 所属シーンを取得
+	Scene *GetScene() const { return pScene; }
+
 protected:
 
 	// コンポーネント追加
-	void AddComponent(Component* pComponent)
-	{
-		components.push_back(pComponent);
-	}
+	void AddComponent(Component* pComponent);
 
 	// 毎フレームの処理
 	virtual void Tick() {}

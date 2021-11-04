@@ -42,6 +42,20 @@ public:
 		actorList.push_back(pActor);
 	}
 
+	// ライトを登録
+	int RegisterLight(const D3DLIGHT9& light)
+	{
+		int index = lights.size();
+		lights.push_back(light);
+		return index;
+	}
+
+	// ライトを更新
+	void UpdateLight(int index, const D3DLIGHT9& light)
+	{
+		lights[index] = light;
+	}
+
 protected:
 
 	// 次のシーンをセット
@@ -57,6 +71,9 @@ private:
 
 	// アクターリスト
 	std::vector<Actor*> actorList;
+
+	// ライトリスト
+	std::vector<D3DLIGHT9> lights;
 
 
 	// 次のシーンを解放
