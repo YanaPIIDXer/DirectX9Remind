@@ -8,6 +8,7 @@ Actor::Actor(Scene* pInScene, const D3DXVECTOR3 &inPosition, const D3DXVECTOR3 &
 	, position(inPosition)
 	, eulerAngle(inEulerAngle)
 	, scale(1.0f, 1.0f, 1.0f)
+	, bIsDestroyed(false)
 {
 	pScene->RegisterActor(this);
 }

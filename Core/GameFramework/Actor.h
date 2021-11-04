@@ -36,6 +36,21 @@ public:
 	// Šgk‚ğİ’è
 	void SetScale(const D3DXVECTOR3& inScale) { scale = inScale; }
 
+	// ”jŠü.
+	void Destroy()
+	{
+		bIsDestroyed = true;
+		OnDestroyed();
+	}
+
+	// ”jŠü‚³‚ê‚Ä‚¢‚é‚©H
+	bool IsDestroyed() const { return bIsDestroyed; }
+
+protected:
+
+	// ”jŠü‚³‚ê‚½
+	virtual void OnDestroyed() {}
+
 private:
 	
 	// Š‘®ƒV[ƒ“
@@ -49,6 +64,9 @@ private:
 	
 	// Šgk
 	D3DXVECTOR3 scale;
+
+	// ”jŠü‚³‚ê‚Ä‚¢‚é‚©H
+	bool bIsDestroyed;
 };
 
 #endif		// #ifndef ACTOR_H

@@ -17,9 +17,20 @@ Scene::~Scene()
 // 更新
 void Scene::Update()
 {
-	for (auto it = actorList.begin(); it != actorList.end(); ++it)
+	auto it = actorList.begin();
+	while (it != actorList.end())
 	{
-		(*it)->Update();
+		auto* pActor = *it;
+		if (pActor->IsDestroyed())
+		{
+			delete pActor;
+			it = actorList.erase(it);
+		}
+		else
+		{
+			pActor->Update();
+			++it;
+		}
 	}
 }
 
@@ -30,7 +41,7 @@ void Scene::Render(LPDIRECT3DDEVICE9 pDevice)
 
 
 // 次のシーンをセット
-void Scene::setNextScene(Scene* pScene)
+void Scene::SetNextScene(Scene* pScene)
 {
 	releaseNextScene();		// もし既にセットされていた場合は解放
 	pNextScene = pScene;

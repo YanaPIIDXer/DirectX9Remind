@@ -42,7 +42,7 @@ public:
 protected:
 
 	// 次のシーンをセット
-	void setNextScene(Scene* pScene);
+	void SetNextScene(Scene* pScene);
 
 private:
 
