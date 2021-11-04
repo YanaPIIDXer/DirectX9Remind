@@ -41,6 +41,14 @@ bool InitD3D9(HWND hWnd)
 	pDevice->SetRenderState(D3DRS_LIGHTING, TRUE);
 	pDevice->SetRenderState(D3DRS_AMBIENT, 0x00202020);
 
+	D3DLIGHT9 light = {};
+	light.Type = D3DLIGHT_DIRECTIONAL;
+	light.Diffuse = { 1.0f, 1.0f, 1.0f, 1.0f };
+	light.Range = 1000.0f;
+	light.Direction = D3DXVECTOR3(0.0f, -1.0f, 0.0f);
+	pDevice->SetLight(0, &light);
+	pDevice->LightEnable(0, TRUE);
+
 	if (FAILED(D3DXCreateTeapot(pDevice, &pTeapot, nullptr)))
 	{
 		MessageBox(nullptr, _T("ティーポットが砕け散った"), _T("Error"), MB_OK);
@@ -75,14 +83,6 @@ void Render()
 	teapotMaterial.Diffuse = { 1.0f, 1.0f, 1.0f, 1.0f };
 	teapotMaterial.Ambient = { 1.0f, 1.0f, 1.0f, 1.0f };
 	pDevice->SetMaterial(&teapotMaterial);
-
-	D3DLIGHT9 light = {};
-	light.Type = D3DLIGHT_DIRECTIONAL;
-	light.Diffuse = { 1.0f, 1.0f, 1.0f, 1.0f };
-	light.Range = 1000.0f;
-	light.Direction = D3DXVECTOR3(0.0f, -1.0f, 0.0f);
-	pDevice->SetLight(0, &light);
-	pDevice->LightEnable(0, TRUE);
 
 	pTeapot->DrawSubset(0);
 
