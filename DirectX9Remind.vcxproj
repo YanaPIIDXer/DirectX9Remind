@@ -148,12 +148,14 @@
     <ClCompile Include="Core\GameFramework\Scene.cpp" />
     <ClCompile Include="Core\GameFramework\Component.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Core\GameFramework\ScenePlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\DirectX\DirectXCore.h" />
     <ClInclude Include="Core\GameFramework\Actor.h" />
     <ClInclude Include="Core\GameFramework\Component.h" />
     <ClInclude Include="Core\GameFramework\Scene.h" />
+    <ClInclude Include="Core\GameFramework\ScenePlayer.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
