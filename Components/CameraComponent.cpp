@@ -22,7 +22,6 @@ void CameraComponent::Update(LPDIRECT3DDEVICE9 pDevice)
 	D3DXVECTOR3 up(0.0f, 1.0f, 0.0f);
 	D3DXVec3TransformCoord(&at, &at, &mat);
 	D3DXVec3TransformCoord(&look, &look, &mat);
-	D3DXVec3TransformCoord(&up, &up, &mat);
 	D3DXMATRIX viewMatrix;
 	D3DXMatrixLookAtLH(&viewMatrix, &at, &look, &up);
 	pDevice->SetTransform(D3DTS_VIEW, &viewMatrix);
