@@ -15,7 +15,8 @@ VS_OUTPUT Vert(float4 pos : POSITION, float3 normal : NORMAL)
 	Out.pos = mul(pos, mWVP);
 	float3 L = -lightDir;
 	float3 N = normalize(mul(normal, (float3x3) mWIT));
-	Out.col = float4(0.2f, 0.2f, 0.2f, 1.0f) + (float4(1.0f, 0.5f, 0.2f, 1.0f) * max(0, dot(N, L)));
+	float theta = max(0, dot(N, L));
+	Out.col = (float4(1.0f, 1.0f, 1.0f, 1.0f) * theta);
 	return Out;
 }
 
