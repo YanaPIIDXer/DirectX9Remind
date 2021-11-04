@@ -1,44 +1,19 @@
 #include "stdafx.h"
-#include <Windows.h>
-#include <tchar.h>
-#include <d3d9.h>
+#include "Core/DirectXCore.h"
 #include <d3dx9.h>
 
 LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 // ============== TODO:Œã‚ÅFX‚ÆƒNƒ‰ƒX‰»‚·‚éŽž‚É®—‚·‚é ===========================
 
-LPDIRECT3D9 pD3D9 = nullptr;
-LPDIRECT3DDEVICE9 pDevice = nullptr;
 LPD3DXMESH pTeapot = nullptr;
 
 // DirectXŠÖŒW‚Ì‰Šú‰»
 bool InitD3D9(HWND hWnd)
 {
-	pD3D9 = Direct3DCreate9(D3D_SDK_VERSION);
-	if (pD3D9 == nullptr)
-	{
-		MessageBox(nullptr, _T("Direct3D‚Ì‰Šú‰»‚ÉŽ¸”s‚µ‚Ü‚µ‚½"), _T("Error"), MB_OK);
-		return false;
-	}
+	if (!DirectXCore::Initialize(hWnd)) { return false; }
 
-	{
-		D3DPRESENT_PARAMETERS params = {};
-		params.Windowed = TRUE;
-		params.SwapEffect = D3DSWAPEFFECT_DISCARD;
-		params.BackBufferFormat = D3DFMT_UNKNOWN;
-		params.EnableAutoDepthStencil = TRUE;
-		params.AutoDepthStencilFormat = D3DFMT_D16;
-
-		if (FAILED(pD3D9->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_SOFTWARE_VERTEXPROCESSING, &params, &pDevice)))
-		{
-			MessageBox(nullptr, _T("Direct3DƒfƒoƒCƒX‚Ì‰Šú‰»‚ÉŽ¸”s‚µ‚Ü‚µ‚½"), _T("Error"), MB_OK);
-			return false;
-		}
-	}
-
-	pDevice->SetRenderState(D3DRS_ZENABLE, TRUE);
-	pDevice->SetRenderState(D3DRS_LIGHTING, TRUE);
+	auto pDevice = DirectXCore::GetDevice();
 
 	D3DLIGHT9 light = {};
 	light.Type = D3DLIGHT_DIRECTIONAL;
@@ -59,6 +34,8 @@ bool InitD3D9(HWND hWnd)
 // •`‰æ
 void Render()
 {
+	auto pDevice = DirectXCore::GetDevice();
+
 	pDevice->Clear(0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 255), 1.0f, 0);
 
 	if (FAILED(pDevice->BeginScene())) { return; }
@@ -93,8 +70,6 @@ void Render()
 void ReleaseD3D9()
 {
 	SAFE_RELEASE(pTeapot);
-	SAFE_RELEASE(pDevice);
-	SAFE_RELEASE(pD3D9);
 }
 
 // ==================================================================================
