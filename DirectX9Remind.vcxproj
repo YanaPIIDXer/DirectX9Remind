@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Components\TeapotComponent.cpp" />
     <ClCompile Include="Core\DirectX\DirectXCore.cpp" />
     <ClCompile Include="Core\GameFramework\Actor.cpp" />
     <ClCompile Include="Core\GameFramework\Scene.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="Core\GameFramework\ScenePlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Components\TeapotComponent.h" />
     <ClInclude Include="Core\DirectX\DirectXCore.h" />
     <ClInclude Include="Core\GameFramework\Actor.h" />
     <ClInclude Include="Core\GameFramework\Component.h" />

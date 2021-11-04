@@ -8,7 +8,6 @@ LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 // ============== TODO:後で色々とクラス化する時に整理する ===========================
 /*
-LPD3DXMESH pTeapot = nullptr;
 
 // DirectX関係の初期化
 bool InitD3D9(HWND hWnd)
@@ -51,17 +50,6 @@ void Render()
 	D3DXMATRIX projMat;
 	D3DXMatrixPerspectiveFovLH(&projMat, D3DXToRadian(45.0f),  1.0f, 0.1f, 1000.0f);
 	pDevice->SetTransform(D3DTS_PROJECTION, &projMat);
-
-	D3DXMATRIX matTeapot;
-	D3DXMatrixTranslation(&matTeapot, 0.0f, 0.0f, -5.0f);
-	pDevice->SetTransform(D3DTS_WORLD, &matTeapot);
-
-	D3DMATERIAL9 teapotMaterial = {};
-	teapotMaterial.Diffuse = { 1.0f, 1.0f, 1.0f, 1.0f };
-	teapotMaterial.Ambient = { 1.0f, 1.0f, 1.0f, 1.0f };
-	pDevice->SetMaterial(&teapotMaterial);
-
-	pTeapot->DrawSubset(0);
 
 	pDevice->EndScene();
 	pDevice->Present(nullptr, nullptr, nullptr, nullptr);
