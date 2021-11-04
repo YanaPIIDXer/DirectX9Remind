@@ -1,7 +1,10 @@
 #ifndef ACTOR_H
 #define ACTOR_H
 
+#include <vector>
+
 class Scene;
+class Component;
 
 // アクタークラス
 class Actor
@@ -16,7 +19,7 @@ public:
 	virtual ~Actor() = 0;
 
 	// 更新
-	virtual void Update() = 0;
+	void Update();
 
 	// 描画
 	void Render();
@@ -51,6 +54,15 @@ public:
 
 protected:
 
+	// コンポーネント追加
+	void AddComponent(Component* pComponent)
+	{
+		components.push_back(pComponent);
+	}
+
+	// 毎フレームの処理
+	virtual void Tick() {}
+
 	// 破棄された
 	virtual void OnDestroyed() {}
 
@@ -70,6 +82,9 @@ private:
 
 	// 破棄されているか？
 	bool bIsDestroyed;
+
+	// コンポーネントリスト
+	std::vector<Component*> components;
 };
 
 #endif		// #ifndef ACTOR_H
