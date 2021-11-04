@@ -2,6 +2,7 @@
 #define STDAFX_H
 
 #include <Windows.h>
+#include <d3d9.h>
 #include <tchar.h>
 
 // ˆÀ‘S‚È‰ð•ú

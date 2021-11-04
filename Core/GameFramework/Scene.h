@@ -15,6 +15,12 @@ public:
 	// 次のシーンが存在するか？
 	bool HasNextScene() const { return (pNextScene != nullptr); }
 	
+	// 更新
+	void Update();
+
+	// 描画
+	void Render(LPDIRECT3DDEVICE9 pDevice);
+
 	// 次のシーンを回収
 	Scene* SweepNextScene()
 	{

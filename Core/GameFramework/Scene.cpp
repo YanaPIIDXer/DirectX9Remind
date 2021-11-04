@@ -13,6 +13,16 @@ Scene::~Scene()
 	releaseNextScene();
 }
 
+// 更新
+void Scene::Update()
+{
+}
+
+// 描画
+void Scene::Render(LPDIRECT3DDEVICE9 pDevice)
+{
+}
+
 
 // 次のシーンをセット
 void Scene::setNextScene(Scene* pScene)

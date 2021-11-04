@@ -1,9 +1,6 @@
 #ifndef DIRECTXCORE_H
 #define DIRECTXCORE_H
 
-#include <d3d9.h>
-#include <Windows.h>
-
 // DirectXÇÃÉRÉA
 class DirectXCore
 {
