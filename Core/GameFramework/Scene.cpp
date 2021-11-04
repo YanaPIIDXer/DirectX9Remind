@@ -11,6 +11,10 @@ Scene::Scene()
 // デストラクタ
 Scene::~Scene()
 {
+	for (auto it = actorList.begin(); it != actorList.end(); ++it)
+	{
+		delete (*it);
+	}
 	releaseNextScene();
 }
 
