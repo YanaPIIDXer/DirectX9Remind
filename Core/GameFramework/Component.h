@@ -17,6 +17,9 @@ public:
 	// XV
 	virtual void Update() = 0;
 
+	// •`‰æ
+	virtual void Render() {}
+
 protected:
 
 	// e‚ğæ“¾

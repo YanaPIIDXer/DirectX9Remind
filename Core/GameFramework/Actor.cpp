@@ -36,4 +36,8 @@ void Actor::Update()
 // •`‰æ
 void Actor::Render()
 {
+	for (auto it = components.begin(); it != components.end(); ++it)
+	{
+		(*it)->Render();
+	}
 }
