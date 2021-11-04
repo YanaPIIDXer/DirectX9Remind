@@ -29,11 +29,11 @@ void PlayerController::Update(LPDIRECT3DDEVICE9 pDevice)
 	}
 	if (GetAsyncKeyState(VK_LEFT))
 	{
-		vec.x += 1.0f;
+		vec.x -= 1.0f;
 	}
 	if (GetAsyncKeyState(VK_RIGHT))
 	{
-		vec.x -= 1.0f;
+		vec.x += 1.0f;
 	}
 	D3DXVec2Normalize(&vec, &vec);
 	forwardCallback(vec.y);
