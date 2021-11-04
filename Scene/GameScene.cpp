@@ -17,7 +17,8 @@ GameScene::~GameScene()
 // シーン開始
 void GameScene::BeginScene()
 {
-	new TeapotActor(this);
+	auto *pTeapot = new TeapotActor(this);
+	pTeapot->SetPosition(D3DXVECTOR3(0.0f, 0.0f, 10.0f));
 	new DirectionalLightActor(this);
 	new CameraActor(this);
 }
