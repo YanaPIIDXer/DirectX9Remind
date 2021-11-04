@@ -17,6 +17,10 @@ Actor::Actor(Scene* pInScene, const D3DXVECTOR3 &inPosition, const D3DXVECTOR3 &
 // デストラクタ
 Actor::~Actor()
 {
+	for (auto it = components.begin(); it != components.end(); ++it)
+	{
+		delete (*it);
+	}
 }
 
 // 更新
