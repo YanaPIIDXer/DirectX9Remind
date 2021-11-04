@@ -25,26 +25,6 @@ bool InitD3D9(HWND hWnd)
 
 	return true;
 }
-
-// •`‰æ
-void Render()
-{
-	auto *pDevice = DirectXCore::GetDevice();
-
-	pDevice->Clear(0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 255), 1.0f, 0);
-
-	if (FAILED(pDevice->BeginScene())) { return; }
-
-	D3DXMATRIX viewMatrix;
-	D3DXVECTOR3 eye(0.0f, 0.0f, 5.0f);
-	D3DXVECTOR3 at(0.0f, 0.0f, 0.0f);
-	D3DXVECTOR3 up(0.0f, 1.0f, 0.0f);
-	D3DXMatrixLookAtLH(&viewMatrix, &eye, &at, &up);
-	pDevice->SetTransform(D3DTS_VIEW, &viewMatrix);
-
-	pDevice->EndScene();
-	pDevice->Present(nullptr, nullptr, nullptr, nullptr);
-}
 */
 // ==================================================================================
 

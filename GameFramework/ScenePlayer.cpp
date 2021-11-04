@@ -43,6 +43,15 @@ void ScenePlayer::Render()
 
 	if (FAILED(pDevice->BeginScene())) { return; }
 
+	// ==== HACK:–{“–‚ÍCameraActor‚Æ‚©’è‹`‚µ‚½•û‚ª‚¢‚¢ ====
+	D3DXMATRIX viewMatrix;
+	D3DXVECTOR3 eye(0.0f, 0.0f, 5.0f);
+	D3DXVECTOR3 at(0.0f, 0.0f, 0.0f);
+	D3DXVECTOR3 up(0.0f, 1.0f, 0.0f);
+	D3DXMatrixLookAtLH(&viewMatrix, &eye, &at, &up);
+	pDevice->SetTransform(D3DTS_VIEW, &viewMatrix);
+	// ====================================================
+
 	D3DXMATRIX projMat;
 	D3DXMatrixPerspectiveFovLH(&projMat, D3DXToRadian(45.0f), 1.0f, 0.1f, 1000.0f);
 	pDevice->SetTransform(D3DTS_PROJECTION, &projMat);
