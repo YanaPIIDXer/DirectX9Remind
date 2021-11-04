@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include <tchar.h>
 #include <d3d9.h>
+#include <d3dx9.h>
 
 LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
@@ -9,6 +10,7 @@ LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 LPDIRECT3D9 pD3D9 = nullptr;
 LPDIRECT3DDEVICE9 pDevice = nullptr;
+LPD3DXMESH pTeapot = nullptr;
 
 // DirectXŠÖŒW‚Ì‰Šú‰»
 bool InitD3D9(HWND hWnd)
@@ -32,6 +34,12 @@ bool InitD3D9(HWND hWnd)
 			return false;
 		}
 	}
+
+	if (FAILED(D3DXCreateTeapot(pDevice, &pTeapot, nullptr)))
+	{
+		MessageBox(nullptr, _T("ƒeƒB[ƒ|ƒbƒg‚ªÓ‚¯ŽU‚Á‚½"), _T("Error"), MB_OK);
+		return false;
+	}
 	return true;
 }
 
@@ -42,6 +50,23 @@ void Render()
 
 	if (FAILED(pDevice->BeginScene())) { return; }
 
+	D3DXMATRIX viewMatrix;
+	D3DXVECTOR3 eye(0.0f, 0.0f, 5.0f);
+	D3DXVECTOR3 at(0.0f, 0.0f, 0.0f);
+	D3DXVECTOR3 up(0.0f, 1.0f, 0.0f);
+	D3DXMatrixLookAtLH(&viewMatrix, &eye, &at, &up);
+	pDevice->SetTransform(D3DTS_VIEW, &viewMatrix);
+
+	D3DXMATRIX projMat;
+	D3DXMatrixPerspectiveFovLH(&projMat, D3DXToRadian(45.0f),  1.0f, 0.1f, 1000.0f);
+	pDevice->SetTransform(D3DTS_PROJECTION, &projMat);
+
+
+	D3DXMATRIX matTeapot;
+	D3DXMatrixTranslation(&matTeapot, 0.0f, 0.0f, -5.0f);
+	pDevice->SetTransform(D3DTS_WORLD, &matTeapot);
+	pTeapot->DrawSubset(0);
+
 	pDevice->EndScene();
 	pDevice->Present(nullptr, nullptr, nullptr, nullptr);
 }
@@ -49,6 +74,7 @@ void Render()
 // DirectXŠÖŒW‚Ì‰ð•ú
 void ReleaseD3D9()
 {
+	SAFE_RELEASE(pTeapot);
 	SAFE_RELEASE(pDevice);
 	SAFE_RELEASE(pD3D9);
 }
