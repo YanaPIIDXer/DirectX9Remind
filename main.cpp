@@ -37,6 +37,17 @@ bool InitD3D9(HWND hWnd)
 	return true;
 }
 
+// •`‰æ
+void Render()
+{
+	pDevice->Clear(0, nullptr, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 255), 1.0f, 0);
+
+	if (FAILED(pDevice->BeginScene())) { return; }
+
+	pDevice->EndScene();
+	pDevice->Present(nullptr, nullptr, nullptr, nullptr);
+}
+
 // DirectXŠÖŒW‚Ì‰ð•ú
 void ReleaseD3D9()
 {
@@ -71,6 +82,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrev, LPSTR pArgs, int argc)
 		{
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
+		}
+		else
+		{
+			Render();
 		}
 	}
 
